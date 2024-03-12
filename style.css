@@ -16,6 +16,11 @@
     --main-color:#754ef9;
     --shadow-color:rgba(0,0,0,.2);
 }
+.dark-mode{
+    --bg-color:#0b061f;
+    --text-color:#fdfdfd;
+    --shadow-color:rgba(0,0,0,.7);
+}
 html{
     font-size: 62.5%;
     
@@ -55,7 +60,7 @@ body{
     font-size: 1.7rem;
     color:var(--white-color) ;
     font-weight: 500;
-    margin-right: 3.5rem;
+    margin-right: 3rem;
 }
 .header.sticky .navbar a{
     color: var(--text-color);
@@ -85,6 +90,11 @@ body{
     color: var(--text-color);
     opacity: .9;
 }
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
 section{
     min-height: 100vh;
     padding: 10rem 7% 2rem;
@@ -92,7 +102,7 @@ section{
 .home{
     display:flex;
     align-items:center;
-    margin-top: 37px;
+    
    
 }
 .home .home-content{
@@ -168,7 +178,35 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
+/* -----rotation------- */
+
+
+/* @keyframes professionRotate{
+    0%,20% {
+        transform: rotate(0deg);
+    }
+
+    25%,45% {
+        transform: rotate(-90deg);
+    }
+
+    50%,70% {
+        transform: rotate(-180deg);
+    }
+
+    75%,95% {
+        transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+} */
+
+
 .home .profession-container .profession{
     position: absolute;
     left: 0;
@@ -308,7 +346,7 @@ span{
     padding-bottom: 10rem;
 }
 .protfolio h2{
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 .protfolio .protfolio-container{
     display: grid;
@@ -368,7 +406,7 @@ span{
 }
 .protfolio-layer a i{
     font-size: 2rem;
-    color: #333;
+    color: var(--main-color);
 }
 
 /***-----testimonialll----*/
@@ -378,7 +416,7 @@ span{
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 5rem 1rem;
+   
 }
 .testimonial-container .testimonial-wrapper{
     position: relative;
@@ -432,7 +470,8 @@ span{
     left: 0;
 }
 .testimonial-box .swiper-pagination-bullet{
-    background: rgb(0,0,0,.8);
+    background: var(--main-color)
+    
 
 }
 .testimonial-box .swiper-pagination-bullet-active{
@@ -473,7 +512,7 @@ span{
     resize: none;
 }
 .contact form .btn{
-    margin-top: 1.6rem;
+    margin-top: 1rem;
     cursor: pointer;
 }
 input[type=number]::-webkit-inner-spin-button, 
@@ -481,6 +520,10 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+/*---------- footerrrr--------- */
+
 .footer{
     display: flex;
     justify-content: space-between;
@@ -501,6 +544,282 @@ input[type=number]::-webkit-outer-spin-button {
     background: var(--white-color);
     border-radius: .8rem;
     border: .2rem solid var(--main-color);
+    outline: .2rem solid transparent;
+    transition: .5s ease;
+}
+.footer-iconTop a:hover{
+    outline-color: var(--white-color);
+}
+.footer-iconTop a i{
+    font-size: 2.4rem;
+    color: var(--main-color);
 }
 
+/* =================responsive========================= */
+
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+    .home .profession-container {
+        height: 85.8rem;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        
+    }
+    .home .profession-container .profession-box,
+    .home .profession-container .overlay {
+        right: 0; /* Reset positioning */
+        transition: right 0.3s ease; /* Add smooth transition */
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar a:nth-child(1) {
+        color: var(--main-color);
+    }
+    .header {
+        padding: 2rem 3%;
+    }
+    section {
+        padding: 10rem 3% 2rem;
+    }
+    .home .profession-container .profession-box,
+    .home .profession-container .overlay {
+        right: -22rem; /* Adjusted positioning */
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar a:nth-child(1),
+    .navbar a:nth-child(2),
+    .navbar a:nth-child(3) {
+        color: var(--main-color);
+    }
+    .navbar a.active::before{
+        background: var(--main-color);
+        opacity: .7;
+    }
+    .home .home-content {
+        max-width: 50rem;
+    }
+    .home .profession-container .profession-box,
+    .home .profession-container .overlay {
+        right: -40rem; /* Adjusted positioning */
+    }
+    .services,
+    .protfolio{
+        padding-bottom: 7rem;
+    }
+    .contact{
+        min-height: auto;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-icon{
+        display: block;
+    }
+    #darkMode-icon{
+        position: absolute;
+        right: 7rem;
+        font-size: 2.6rem;
+        color: var(--text-color);
+        margin-bottom: .1rem;
+    }
+   
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-color: .1rem solid rgba(0,0,0,.2);
+        box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+        display: none;
+    }
+    .navbar.active{
+        display: block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+    .navbar a:nth-child(2),
+    .navbar a:nth-child(3){
+        color: var(--text);
+    }
+    .navbar a.active {
+        color: var(--main-color);
+    }
+    .navbar a::before{
+        display: none;
+    }
+    .home{
+        padding: 0 3% 23rem;
+        justify-content: center;
+        text-align: center;
+    }
+    .home-content h3{
+        font-size: 2.6rem;
+    }
+    .home-content h1{
+        font-size: 5rem ;
+    }
+    .home-content .social-media a{
+        margin:2.5rem .75rem 3rem;
+    }
+    .home .profession-container{
+        left: 0;
+        width: 100%;
+        height: 110%;
+        
+    }
+    .home .profession-container .profession-box{
+        position: fixed;
+        top: 60%;
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .home .profession-box .profession{
+        padding: 0 13px ;
+        margin-top: 20px;
+        left: auto;
+        transform-origin: 0;
+    }
+    .home .profession-box .profession:nth-child(1){
+        transform: rotate(-90deg) translate(-120px,-210px);
+    }
+    .home .profession-box .profession:nth-child(1) i {
+       margin-right: 0;
+    }
+    .home .profession-box .profession:nth-child(2){
+        transform: rotate(0deg) translate(0px,-335px);
+    }
+    .home .profession-box .profession:nth-child(3){
+        transform: rotate(90deg) translate(-115px,-450px);
+    }
+    .home .profession-box .profession:nth-child(4){
+        transform: rotate(180deg) translate(-220px,-335px);
+    }
+    .home .profession-box .circle{
+        position: fixed;
+        width: 670px;
+        height: 670px;
+        z-index: -1;
+    }
+    .home .profession-container .overlay{
+        position: fixed;
+        top: 70rem;
+        left: 50%;
+        right: 0;
+        transform: rotate(90deg) translate(-50%,50%) scaleY(3);
+        border-width: 23.9rem;
+    }
+    .about{
+        flex-direction: column-reverse;
+        align-items: center;
+        
+    }
+    .about .about-content{
+        margin-left: 30px;
+    }
+    .about-content h2{
+        text-align: center;
+        margin-bottom: 2rem;
+        
+    }
+    .about-img img{
+        width: 70vw;
+        
+    }
+    .services h2,
+    .protfolio h2{
+        margin-bottom: 3rem;
+    }
+    .protfolio .protfolio-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .testimonial-container .testimonial-wrapper{
+        padding: 5rem 0;
+    }
+    .testimonial-content .testimonial-slide{
+        padding: 3rem 2rem;
+    }
+    .testimonial-box .swiper-button-next,
+    .testimonial-box .swiper-button-prev{
+        display: none;
+    }
+    
+}
+@media (max-width: 617px){
+    .protfolio .protfolio-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 450px){
+    html{
+        font-size: 50%
+    }
+    #darkMode-icon{
+        right:6rem;
+    }
+    .home{
+        padding: 0 3% 30rem;
+    }  
+    .home .profession-box .profession{
+        margin-top: 30px;
+     }
+    .home .profession-box .profession:nth-child(1){
+        transform: rotate(-90deg) translate(-110px,-220px);
+    }
+    .home .profession-box .profession:nth-child(2){
+        transform: rotate(0deg) translate(5px,-335px);
+    }
+    .home .profession-box .profession:nth-child(3){
+        transform: rotate(90deg) translate(-105px,-440px);
+    }
+    .home .profession-box .profession:nth-child(4){
+        transform: rotate(180deg) translate(-210px,-335px);
+    }
+    .home .profession-container{
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .home .profession-box .circle{
+        
+        width: 600px;
+        height: 670px;
+        z-index: -1;
+    }
+    
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
+@media (max-width: 380px){
+   
+    .footer{
+        flex-direction: column-reverse;
+    }
+    .footer p{
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 365px){
+    .about-img img {
+        width:90vw ;
+    }
+    
+}
 

@@ -7,9 +7,7 @@
 
     <!-- swiper css -->
 
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     <!------box Iconsss-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -26,10 +24,12 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#protfolio">Protfolio</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
 
         <div class="bx bx-moon" id="darkMode-icon"></div>
+        <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
         <!-------- home section  ---------------->
@@ -57,8 +57,8 @@
                         <h3>Web Developer</h3>
                     </div>
                     <div class="profession" style="--i:1;">
-                        <i class='bx bx-code-alt'></i>
-                        <h3>Web Designer</h3>
+                        <i class='bx bxl-visual-studio'></i>
+                        <h3>Web Developer</h3>
                     </div>
                     <div class="profession" style="--i:2;">
                         <i class='bx bxs-edit' ></i>
@@ -187,6 +187,8 @@
 
 
     <!-- testimonial design -->
+    
+ <section class="skills" id="skills">
     <div class="testimonial-container">
         <h2 class="heading">Valuable <span>Testimonial</span></h2>
 
@@ -219,7 +221,7 @@
             </div>
         </div>
     </div>
-
+ </section>
     <!-- contact section design -->
 
     <section class="contact" id="contact">
@@ -230,7 +232,8 @@
                 <input type="email" placeholder="Email">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number" maxlength="10">
+                <input type="tel" placeholder="Mobile Number"  maxlength="10"  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)">
+                
                 <input type="text" placeholder="Email Subject">
             </div>
             <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
@@ -250,6 +253,10 @@
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
+
+
+    <!-- ----scroll reveal ------>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- swiper js -->
 
