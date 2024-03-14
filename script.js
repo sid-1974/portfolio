@@ -62,11 +62,22 @@ var swiper = new Swiper(".mySwiper", {
 
 
   ////---Dark-light Mood  ----////
-  let darkmodicon = document.querySelector('#darkMode-icon');
-  darkmodicon.onclick = () =>{
-    darkmodicon.classList.toggle('bx-sun');
-    document.body.classList.toggle('dark-mode');
-  };
+  
+  const darkModeIcon = document.querySelector('#darkMode-icon');
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+  if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      darkModeIcon.classList.add('bx-sun');
+  }
+
+  darkModeIcon.addEventListener('click', () => {
+      const isCurrentlyDarkMode = document.body.classList.contains('dark-mode');
+      document.body.classList.toggle('dark-mode');
+      darkModeIcon.classList.toggle('bx-sun', !isCurrentlyDarkMode);
+      darkModeIcon.classList.toggle('bx-moon', isCurrentlyDarkMode);
+      localStorage.setItem('darkMode', !isCurrentlyDarkMode);
+  });
 
   ////---scroll reveal  ----////
 
