@@ -91,4 +91,6 @@ var swiper = new Swiper(".mySwiper", {
    ScrollReveal().reveal('.home-content,  .heading', { origin: 'top' });
    ScrollReveal().reveal('.home-img img,  .services-container, .protfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
    ScrollReveal().reveal('.home-content h1,.home-content h3, .home-content p, .about-content,.about-img img,.services-box p', { origin: 'left' });
-  
+
+
+
