@@ -94,3 +94,50 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
+///email-js
+
+// Initialize EmailJS with your User ID
+// Import EmailJS
+
+
+// Initialize EmailJS
+emailjs.init("n6j64eeLspWb-17Ae"); // Replace with your actual Public Key
+
+// Handle form submission
+document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const name = document.querySelector("input[placeholder='Full Name']").value;
+    const email = document.querySelector("input[placeholder='Email']").value;
+    const mobile = document.querySelector("input[placeholder='Mobile Number']").value;
+    const subject = document.querySelector("input[placeholder='Email Subject']").value;
+    const message = document.querySelector("textarea").value;
+
+    // Validate input
+    if (!name || !email || !mobile || !subject || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Send email
+    emailjs
+        .send("service_dwb2f5b", "template_y7hkd2n", {
+            user_name: name,
+            user_email: email,
+            user_mobile: mobile,
+            email_subject: subject,
+            user_message: message,
+        })
+        .then(
+            function (response) {
+                alert("Message sent successfully!");
+                console.log("SUCCESS!", response.status, response.text);
+                document.querySelector("form").reset(); // Clear form fields
+            },
+            function (error) {
+                alert("Failed to send message. Please try again.");
+                console.error("FAILED...", error);
+            }
+        );
+});
